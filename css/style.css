@@ -1,7 +1,7 @@
 :root {
     --dashboard-color: #65a30d;
     --header-color: white;
-    --content-color: rgb(210, 210, 210);
+    --content-color: rgb(231, 231, 231);
 }
 
 .container {
@@ -13,13 +13,15 @@
 
 img {
     width: 30px;
-    /* -webkit-filter: invert(100%);
-    filter: invert(100%);
-    */
 }
 
 a {
     display: grid;
+}
+
+a:hover,
+button:hover {
+    transform: scale(1.1);
 }
 
 /* dashboard */
@@ -28,6 +30,7 @@ a {
     grid-row: span 2;
     padding: 10px;
     background: var(--dashboard-color);
+    z-index: 2;
 }
 
 .logo {
@@ -35,6 +38,7 @@ a {
     grid-template-columns: 1fr 0;
     justify-items: start;
     font-size: 1.5rem;
+    font-weight: bold;
     padding: 1rem 0;
 }
 
@@ -82,6 +86,8 @@ header {
     background: var(--header-color);
     gap: 1rem;
     padding: 1.5rem 1.5rem 0.5rem 1.5rem;
+    box-shadow: 0 0 3px 3px rgb(188, 188, 188);
+    z-index: 1;
 }
 
 .top-bar {
@@ -112,8 +118,29 @@ input {
 
 .top-right-bar {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
+    grid-template-columns: 1fr 1fr 2fr;
+    justify-items: end;
+}
+
+.top-right-bar>a:last-of-type {
+    justify-self: center;
+}
+
+.dash-links {
+    display: grid;
+    gap: 15px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.dash-links>li {
+    display: grid;
+    justify-items: start;
+    grid-template-columns: 1fr 0;
+}
+
+.dash-links img {
+    width: 30px;
 }
 
 .bottom-bar {
@@ -162,6 +189,56 @@ input {
 
 .content {
     display: grid;
-    padding: 10px;
+    grid-template-columns: 3fr 1fr;
+    padding: 2rem 1rem;
     background: var(--content-color);
+    gap: 1rem;
+    overflow: auto;
+}
+
+.projects>p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.card {
+    display: grid;
+    height: 200px;
+    background: white;
+    border-radius: 7px;
+    border-left: 7px solid #fff695;
+    padding: 1rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 30px 1fr 30px;
+    box-shadow: 2px 2px 2px 2px rgb(188, 188, 188);
+}
+
+.card img {
+    width: 20px;
+}
+
+.card-title {
+    grid-column: span 2;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.card-text {
+    grid-column: span 2;
+    font-size: 0.8rem;
+    overflow: auto;
+}
+
+.card-buttons {
+    display: grid;
+    grid-column: 2;
+    place-items: center;
+    grid-template-columns: repeat(3, 1fr);
 }
