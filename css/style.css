@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'raleway';
+    src: url('../fonts/Raleway-VariableFont_wght.ttf') format('truetype');
+}
+
 :root {
     --dashboard-color: #65a30d;
     --header-color: white;
@@ -9,6 +14,7 @@
     display: grid;
     grid-template-columns: 250px 4fr;
     grid-template-rows: 1fr 4fr;
+    font-family: 'raleway', sans-serif;
 }
 
 img {
@@ -24,6 +30,10 @@ button:hover {
     transform: scale(1.1);
 }
 
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
 /* dashboard */
 
 .sidebar {
@@ -31,6 +41,7 @@ button:hover {
     padding: 10px;
     background: var(--dashboard-color);
     z-index: 2;
+    color: white;
 }
 
 .logo {
@@ -50,6 +61,8 @@ button:hover {
 
 .logo img {
     width: 50px;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
 }
 
 .dash-links {
@@ -67,6 +80,8 @@ button:hover {
 
 .dash-links img {
     width: 30px;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
 }
 
 .dash-links a {
@@ -124,23 +139,6 @@ input {
 
 .top-right-bar>a:last-of-type {
     justify-self: center;
-}
-
-.dash-links {
-    display: grid;
-    gap: 15px;
-    padding-left: 10px;
-    padding-top: 10px;
-}
-
-.dash-links>li {
-    display: grid;
-    justify-items: start;
-    grid-template-columns: 1fr 0;
-}
-
-.dash-links img {
-    width: 30px;
 }
 
 .bottom-bar {
@@ -205,12 +203,12 @@ input {
 .card-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
 }
 
 .card {
     display: grid;
-    height: 200px;
     background: white;
     border-radius: 7px;
     border-left: 7px solid #fff695;
@@ -241,4 +239,75 @@ input {
     grid-column: 2;
     place-items: center;
     grid-template-columns: repeat(3, 1fr);
+}
+
+.promotion-bar {
+    display: grid;
+    gap: 1rem;
+}
+
+.announcements>p,
+.trending>p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.announce-list,
+.trend-list {
+    display: grid;
+    background: white;
+    border-radius: 7px;
+    border-top: 7px solid var(--dashboard-color);
+    border-bottom: 7px solid var(--dashboard-color);
+    padding: 0.5rem 1.5rem;
+    box-shadow: 2px 2px 2px 2px rgb(188, 188, 188);
+}
+
+.announce-title {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.announce-text {
+    font-size: 0.8rem;
+}
+
+.announce-item {
+    padding: 4px 0;
+}
+
+.announce-item:not(:last-of-type) {
+    border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.trend-list {
+    gap: 0.5rem;
+}
+
+.trend-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    align-items: center;
+}
+
+.trend-item>img {
+    grid-row: span 2;
+}
+
+.trend-item>p:first-of-type {
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.trend-item>p:last-of-type {
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+/* just for my github link (⌐▨_▨) */
+
+.trend-item a:hover {
+    color: #65a30d;
+    transform: rotateX(5deg)
 }
